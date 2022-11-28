@@ -24,9 +24,15 @@ const todoList = () => {
   const dueToday = () => {
     // Write the date check condition here and return the array of todo items that are due today accordingly.
     // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
+    const dt = [];
+    const today = new Date(Date.now());
+    all.forEach((element) => {
+      const date = (JSON.stringify(today).substring(1, 11));
+      if (element.dueDate === date) {
+        dt.push(element)
+      }
+    })
+    return dt
   };
 
   const dueLater = () => {
