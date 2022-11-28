@@ -52,10 +52,25 @@ const todoList = () => {
   const toDisplayableList = (list) => {
     // Format the To-Do list here, and return the output string as per the format given above.
     // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-    // return OUTPUT_STRING
+    var str = "";
+    for (var i = 0; i < list.length; i++) {
+      if (i > 0) {
+        str += "\n";
+      }
+      if (list[i].completed == true) {
+        str += "[x] ";
+      } else {
+        str += "[ ] ";
+      }
+      var today = new Date(Date.now());
+      var date = JSON.stringify(today).substring(1, 11);
+      if (list[i].dueDate == date) {
+        str += list[i].title;
+      } else {
+        str += list[i].title + " " + list[i].dueDate;
+      }
+    }
+    return str;
   };
 
   return {
