@@ -10,15 +10,15 @@ const todoList = () => {
   const overdue = () => {
     // Write the date check condition here and return the array of overdue items accordingly.
     // FILL YOUR CODE HERE
-    const od = []
-    const yesterday = new Date(Date.now() - 864e5)
+    const od = [];
+    const yesterday = new Date(Date.now() - 864e5);
     all.forEach((element) => {
-      const date = JSON.stringify(yesterday).substring(1, 11)
+      const date = JSON.stringify(yesterday).substring(1, 11);
       if (element.dueDate === date) {
-        od.push(element)
+        od.push(element);
       }
-    })
-    return od
+    });
+    return od;
   };
 
   const dueToday = () => {
@@ -27,20 +27,26 @@ const todoList = () => {
     const dt = [];
     const today = new Date(Date.now());
     all.forEach((element) => {
-      const date = (JSON.stringify(today).substring(1, 11));
+      const date = JSON.stringify(today).substring(1, 11);
       if (element.dueDate === date) {
-        dt.push(element)
+        dt.push(element);
       }
-    })
-    return dt
+    });
+    return dt;
   };
 
   const dueLater = () => {
     // Write the date check condition here and return the array of todo items that are due later accordingly.
     // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
+    const dl = [];
+    const tomorrow = new Date(Date.now() + 864e5);
+    all.forEach((element) => {
+      const date = JSON.stringify(tomorrow).substring(1, 11);
+      if (element.dueDate === date) {
+        dl.push(element);
+      }
+    });
+    return dl;
   };
 
   const toDisplayableList = (list) => {
