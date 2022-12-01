@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "scriptname": "cmd"
   },
   "dependencies": {
     "jest": "^29.3.1"
