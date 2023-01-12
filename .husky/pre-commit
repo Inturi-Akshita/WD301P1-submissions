@@ -2,9 +2,12 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm test
+<<<<<<< HEAD
 npx lint-staged
 tests added
 npm test
 npm test
 npm test
 npm test
+=======
+>>>>>>> 815c4be26ec6dc5d89ea080296da2a6fd11f5501
