@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable no-unused-vars */
-=======
->>>>>>> 815c4be26ec6dc5d89ea080296da2a6fd11f5501
+// eslint-disable-next-line no-unused-vars
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const { sequelize } = require("./connectDB.js");
 
@@ -9,15 +6,12 @@ class Todo extends Model {
   static async addTask(params) {
     return await Todo.create(params);
   }
-<<<<<<< HEAD
 
   displayableString() {
     return `${this.completed ? "[x]" : "[ ]"} ${this.id}. ${this.title} - ${
       this.dueDate
     }`;
   }
-=======
->>>>>>> 815c4be26ec6dc5d89ea080296da2a6fd11f5501
 }
 
 Todo.init(
