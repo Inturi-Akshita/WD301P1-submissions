@@ -12,8 +12,28 @@ app.get("/", (request, response) => {
 });
 
 // To print the list of todos
-app.get("/todos", (request, response) => {
+app.get("/todos", async (request, response) => {
   console.log("Todo list");
+  // response.send("todoList");
+  // const todoList = await Todo.findAll();
+
+  // console.log(todoList.every((user) => user instanceof Todo));
+  // console.log(todoList);
+  // console.log("All users:", JSON.stringify(todoList, null, 2));
+  // console.log(todoList.length);
+
+  // return response.json(todoList);
+
+  // return response.json(todoList.map(user => user = user + "\n"));
+
+  // check to print then in separate line
+  try {
+    const todoList = await Todo.findAll();
+    return response.send(todoList);
+  } catch (error) {
+    console.log(error);
+    return response.status(422).json(error);
+  }
 });
 
 // route for creating a new todo
@@ -56,8 +76,15 @@ app.put("/todos/:id/markAsCompleted", async (request, response) => {
 });
 
 // To delete a todo by its id
-app.delete("/todos/:id", (request, response) => {
-  console.log("Delete a todo by ID: ", request.params.id);
+app.delete("/todo", async (request, response) => {
+  console.log("j");
+  // console.log("Delete a todo by ID: ", request.params.id);
+  // await Todo.destroy({
+  //   where: {
+  //     id: request.params.id,
+  //   },
+  // });
+  response.send("b");
 });
 
 module.exports = app;

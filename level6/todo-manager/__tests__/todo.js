@@ -46,5 +46,5 @@ describe("Todo test suite", () => {
       .send();
     const parsedUpdateResponse = JSON.parse(markCompleteResponse.text);
     expect(parsedUpdateResponse.completed).toBe(true);
-  }, 30000);
+  });
 });
