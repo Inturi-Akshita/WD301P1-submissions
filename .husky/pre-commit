@@ -11,3 +11,5 @@ npm test
 npm test
 =======
 >>>>>>> 815c4be26ec6dc5d89ea080296da2a6fd11f5501
+npm test
+npx lint-staged
