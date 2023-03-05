@@ -76,15 +76,17 @@ app.put("/todos/:id/markAsCompleted", async (request, response) => {
 });
 
 // To delete a todo by its id
-app.delete("/todo", async (request, response) => {
-  console.log("j");
+app.delete("/todos/:id/delete", async (request, response) => {
+  console.log(request.params.id);
+  const todo = await Todo.findByPk(request.params.id);
+
   // console.log("Delete a todo by ID: ", request.params.id);
-  // await Todo.destroy({
-  //   where: {
-  //     id: request.params.id,
-  //   },
-  // });
-  response.send("b");
+  await Todo.destroy({
+    where: {
+      id: request.params.id,
+    },
+  });
+  response.send("done");
 });
 
 module.exports = app;
