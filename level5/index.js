@@ -5,7 +5,7 @@ const createTodo = async () => {
   try {
     await connect();
     const todo = await Todo.addTask({
-      title: "Fourth Item",
+      title: "Seventh Item",
       dueDate: new Date(),
       completed: false,
     });
