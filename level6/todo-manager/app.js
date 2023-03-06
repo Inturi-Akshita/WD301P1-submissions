@@ -4,12 +4,28 @@ const express = require("express");
 const app = express();
 const { Todo } = require("./models");
 const bodyParser = require("body-parser"); // to read data from request.body (to look for todo title and duedate)
+const path = require("path");
+
 app.use(bodyParser.json());
 
+// rendering engine
+app.set("view engine", "ejs");
+
 // Parent page
-app.get("/", (request, response) => {
-  response.send("hello world");
+app.get("/", async (request, response) => {
+  const allTodos = await Todo.getTodos();
+  if (request.accepts("html")) {
+    response.render("index", {
+      allTodos,
+    });
+  } else {
+    response.json({
+      allTodos,
+    });
+  }
 });
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // To print the list of todos
 app.get("/todos", async (request, response) => {
